@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: frontend-fargate
-  type: NodePort
+  type: LoadBalancer #NodePort
   ports:
     - protocol: TCP
       port: 80
