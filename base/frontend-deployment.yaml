@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-frontend
-  namespace: default
+  name: maverick-ui
+  namespace: maverick-ui
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend-fargate
+      app: maverick-ui
   template:
     metadata:
       labels:
-        app: frontend-fargate
+        app: maverick-ui
     spec:
       containers:
-        - name: demo-frontend
-          image: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/demo-frontend:f95914ed
+        - name: maverick-ui
+          image: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/app/maverick-ui/dev:dev
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 3000
