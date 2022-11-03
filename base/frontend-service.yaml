@@ -8,9 +8,9 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-path: "/"
 spec:
   selector:
-    app: maverick-ui-dev
+    app: frontend-fargate
   type: LoadBalancer #NodePort
   ports:
     - protocol: TCP
-      port: 80
+      port: 3000
       targetPort: 80

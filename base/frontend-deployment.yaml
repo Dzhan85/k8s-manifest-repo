@@ -8,11 +8,11 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: maverick-ui-dev
+      app: frontend-fargate
   template:
     metadata:
       labels:
-        app: maverick-ui-dev
+        app: frontend-fargate
     spec:
       containers:
         - name: maverick-ui

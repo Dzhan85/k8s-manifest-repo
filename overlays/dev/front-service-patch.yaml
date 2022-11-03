@@ -9,4 +9,4 @@ metadata:
     env: dev
 spec:
   selector:
-    app: maverick-ui-dev
+    app: frontend-fargate-dev
