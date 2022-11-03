@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maverick-ui
+  namespace: maverick-ui
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: maverick-ui
+  template:
+    metadata:
+      labels:
+        app: maverick-ui
+    spec:
+      containers:
+        - name: maverick-ui
+          image: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/app/maverick-ui/dev:dev
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000

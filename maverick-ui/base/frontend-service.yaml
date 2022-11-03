@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maverick-ui
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: "/"
+spec:
+  selector:
+    app: maverick-ui
+  type: LoadBalancer #NodePort
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

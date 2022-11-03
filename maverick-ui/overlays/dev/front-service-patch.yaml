@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: maverick-ui-dev
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: "/"
+  labels:
+    env: dev
+spec:
+  selector:
+    app: maverick-ui-dev
