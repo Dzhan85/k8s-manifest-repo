@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: maverick-ui-dev
-  namespace: maverick-ui
+  namespace: dev
   labels:
     env: dev
 spec:
