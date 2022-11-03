@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - frontend-deployment.yaml
   - frontend-service.yaml
-namespace: dev
+namespace: maverick-ui

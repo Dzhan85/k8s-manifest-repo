@@ -8,8 +8,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: maverick-ui-dev
+      app: maverick-ui
   template:
     metadata:
       labels:
-        app: maverick-ui-dev
+        app: maverick-ui
