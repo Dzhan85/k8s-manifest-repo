@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: maverick-ui
-  namespace: dev
+  name: demo-frontend
   annotations:
     alb.ingress.kubernetes.io/healthcheck-path: "/"
   labels:
     env: dev
 spec:
   selector:
-    app: frontend-fargate-dev
+    app: frontend-fargate

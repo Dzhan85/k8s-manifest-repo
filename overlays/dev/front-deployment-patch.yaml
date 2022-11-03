@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: maverick-ui-dev
+  name: demo-frontend
   namespace: dev
   labels:
     env: dev
 spec:
   selector:
     matchLabels:
-      app: frontend-fargate-dev
+      app: frontend-fargate
   template:
     metadata:
       labels:
-        app: frontend-fargate-dev
+        app: frontend-fargate

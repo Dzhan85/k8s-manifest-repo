@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-flask-backend
-  namespace: dev
+  namespace: default
 spec:
   replicas: 3
   selector:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-flask-backend
-          image: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/demo-frontend:f95914ed
+          image: 690757098488.dkr.ecr.ap-northeast-2.amazonaws.com/demo-flask-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
