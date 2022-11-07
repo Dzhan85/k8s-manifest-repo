@@ -4,6 +4,6 @@ bases:
   - ../../base/server
 namePrefix: dev-
 images:
-- name: kustomization-microservices-ui
+- name: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/app/maverick-ui/dev
   newName: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/app/maverick-ui/dev
   newTag: c85e5de2
