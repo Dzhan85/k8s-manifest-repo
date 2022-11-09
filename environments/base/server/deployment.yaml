@@ -23,9 +23,9 @@ spec:
           #       secretKeyRef:
           #         name: pg-secret
           #         key: PGPASSWORD
-          # envFrom:
-          #   - configMapRef:
-          #       name: pg-config
+          envFrom:
+            - configMapRef:
+                name: mu-dev
           ports:
             - containerPort: 3000
           readinessProbe: # use Readiness Probes for your web app to decide when the Pod should receive traffic
