@@ -16,7 +16,14 @@ spec:
     spec:
       containers:
         - name: kustomization-microservices-ui
-          image: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/app/maverick-ui/dev:dev # This gets switched for a real image name by kustomize
+          image: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/app/maverick-ui/dev:dev
+          resources:
+            limits:
+              cpu: 500m
+              memory: 400Mi
+            requests:
+              cpu: 250m
+              memory: 200Mi # This gets switched for a real image name by kustomize
           # env:
           #   - name: PGPASSWORD
           #     valueFrom:
