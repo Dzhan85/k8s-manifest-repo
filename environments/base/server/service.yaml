@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kustomization-microservices-ui
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 80
