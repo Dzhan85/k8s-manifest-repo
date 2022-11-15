@@ -5,13 +5,9 @@ metadata:
   name: "backend-ingress"
   namespace: default
   annotations:
-    #kubernetes.io/ingress.class: alb
+    kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    kubernetes.io/ingress.class: ingress-nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
     - http:

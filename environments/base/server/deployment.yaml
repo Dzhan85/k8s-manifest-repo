@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kustomization-microservices-ui
+  labels:
+    app.kubernetes.io/part-of: kustomize-microservices
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kustomization-microservices-ui
+  template:
+    metadata:
+      labels:
+        app: kustomization-microservices-ui
+    spec:
+      containers:
+        - name: kustomization-microservices-ui
+          image: 292526779943.dkr.ecr.eu-central-1.amazonaws.com/app/maverick-ui/dev:dev
+          resources:
+            limits:
+              cpu: 500m
+              memory: 400Mi
+            requests:
+              cpu: 250m
+              memory: 200Mi # This gets switched for a real image name by kustomize
+          # env:
+          #   - name: PGPASSWORD
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: pg-secret
+          #         key: PGPASSWORD
+          envFrom:
+            - configMapRef:
+                name: mu-dev
+          ports:
+            - containerPort: 3000
+          readinessProbe: # use Readiness Probes for your web app to decide when the Pod should receive traffic
+            httpGet:
+              path: /api/readiness #our default BaseRouter responds to /api requests
+              port: 3000
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+          livenessProbe: # use Liveness Probes to tell the platform when to kill containers it thinks are dead or deadlocked; this should be almost never, so we choose very conservatively high values. Otherwise we get containers being killed under load, which can lead to cascading failures,
+            httpGet:
+              path: /api/liveness #our default BaseRouter responds to /api requests
+              port: 3000
+            initialDelaySeconds: 130
+            timeoutSeconds: 10
+            failureThreshold: 10
